@@ -1,0 +1,12 @@
+# ninja log v5
+46	385	7680560471805179	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	ad9047e3b1ece6a1
+387	515	7680560473155767	C:/Unity/Projects/Project_Air_Hockey/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4z5l4a58/obj/arm64-v8a/libswappywrapper.so	f12bd7d1b86ecd69
+27	904	7680560476950790	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	2fceed8f76b66ca2
+22	924	7680560477163644	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8bc474989f83a961
+38	925	7680560477209094	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	39c45358d70de617
+11	926	7680560477203932	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	21f041a74f20fbc7
+32	982	7680560477723997	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a59c6561c9528c5
+1	1023	7680560478131045	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	6e1d2b82a67cf8d4
+16	1122	7680560479077640	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	738ab2a949bc0bf6
+5	1222	7680560480022026	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	2712edb0fff582d6
+1222	1313	7680560481147083	C:/Unity/Projects/Project_Air_Hockey/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4z5l4a58/obj/arm64-v8a/libgame.so	682cd398a4352acb
