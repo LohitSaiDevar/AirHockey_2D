@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     public bool player1_turn;
 
     UIManager uiManager;
-    private void Start()
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -24,6 +24,11 @@ public class ScoreManager : MonoBehaviour
         {
             Instance = this;
         }
+        
+    }
+
+    private void Start()
+    {
         uiManager = UIManager.Instance;
     }
 

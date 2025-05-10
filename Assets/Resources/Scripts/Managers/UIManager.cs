@@ -25,6 +25,10 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
         scoreManager = ScoreManager.Instance;
     }
     private void OnEnable()
@@ -46,13 +50,13 @@ public class UIManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        Debug.Log("remaining time: " + remainingTime);
+        //Debug.Log("remaining time: " + remainingTime);
     }
 
     public void DisplayCountdownTimer(int countdownTimer)
     {
         countdownTimerText.text = "" + countdownTimer;
-        Debug.Log("countdown: " + countdownTimer);
+        //Debug.Log("countdown: " + countdownTimer);
     }
 
     public void DisplayGameOverUI(bool setActive)

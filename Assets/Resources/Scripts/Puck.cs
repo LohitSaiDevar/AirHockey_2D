@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class Puck : MonoBehaviour
 {
+    Rigidbody2D rb;
     [SerializeField] Vector2 initialPos;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Barrier"))
@@ -27,5 +33,7 @@ public class Puck : MonoBehaviour
     void ResetPosition()
     {
         transform.position = initialPos;
+        rb.linearVelocity = new Vector2(0, 0);
+        rb.angularVelocity = 0;
     }
 }

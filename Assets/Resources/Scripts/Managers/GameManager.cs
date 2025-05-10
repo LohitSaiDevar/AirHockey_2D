@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     bool isGameOver;
 
     
+    
     public static Action OnGameReset;
     private void Awake()
     {
@@ -33,9 +34,7 @@ public class GameManager : MonoBehaviour
 
 
         uiManager = UIManager.Instance;
-        scoreManager = ScoreManager.Instance;
-
-        StartCoroutine(SetCountDownTimer());
+        scoreManager = ScoreManager.Instance; 
     }
 
     void Start()
@@ -43,11 +42,12 @@ public class GameManager : MonoBehaviour
         remainingTime = initialTime;
         remainingCountdownTime = initialCountdownTime;
         uiManager.gameOverUI.SetActive(false);
+        StartCoroutine(nameof(SetCountDownTimer));
     }
 
     private void Update()
     {
-        uiManager.DisplayScore();
+        
     }
     private void OnEnable()
     {
@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
         }
 
         uiManager.countdownTimerText.gameObject.SetActive(false);
-        StartCoroutine(SetMatchTimer());
+        StopCoroutine(nameof(SetMatchTimer));
+        StartCoroutine(nameof(SetMatchTimer));
     }
     private void GameOver()
     {
@@ -107,25 +108,16 @@ public class GameManager : MonoBehaviour
     void OnReset()
     {
         //Countdown Timer
+        StopCoroutine(nameof(SetCountDownTimer));
+        StopCoroutine(nameof(SetMatchTimer));
         uiManager.countdownTimerText.gameObject.SetActive(true);
         remainingCountdownTime = initialCountdownTime;
-        StartCoroutine(SetCountDownTimer());
+        StartCoroutine(nameof(SetCountDownTimer));
 
         //Timer
         isGameOver = false;
         remainingTime = initialTime;
         
-    }
-
-    void OnGameStart()
-    {
-        
-        remainingCountdownTime = initialCountdownTime;
-        StartCoroutine(SetCountDownTimer());
-
-        //Timer
-        isGameOver = false;
-        remainingTime = initialTime;
     }
     public void RestartGame()
     {
