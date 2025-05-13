@@ -20,8 +20,12 @@ public class Barrier : MonoBehaviour
 
     [SerializeField] PlayerBarrier playerSide;
 
+    Animator animator;
+    private const string Glow = "Glow";
+
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         yourScore = (int)fixedScore;
     }
     public int YourScore
@@ -34,5 +38,10 @@ public class Barrier : MonoBehaviour
     {
         get { return playerSide; }
         private set { playerSide = value; }
+    }
+
+    public void BarrierGlow()
+    {
+        animator.Play(Glow);
     }
 }

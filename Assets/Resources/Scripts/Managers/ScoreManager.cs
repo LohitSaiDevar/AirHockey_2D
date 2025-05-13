@@ -75,12 +75,13 @@ public class ScoreManager : MonoBehaviour
         if (player1_turn && barrier.PlayerSide == PlayerBarrier.Player_2)
         {
             player_1_Score += barrier.YourScore;
-            
+            barrier.BarrierGlow();
             Debug.Log("Player 1 score: " + player_1_Score);
         }
         else if(!player1_turn && barrier.PlayerSide == PlayerBarrier.Player_1)
         {
             player_2_Score += barrier.YourScore;
+            barrier.BarrierGlow();
             Debug.Log("Player 2 score: " + player_2_Score);
         }
         uiManager.DisplayScore();
