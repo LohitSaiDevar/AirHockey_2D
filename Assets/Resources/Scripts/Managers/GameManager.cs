@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     UIManager uiManager;
     ScoreManager scoreManager;
     AudioManager audioManager;
+    InputManager inputManager;
     bool isGameOver;
 
 
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         uiManager = UIManager.Instance;
         scoreManager = ScoreManager.Instance;
         audioManager = AudioManager.Instance;
+        inputManager = InputManager.Instance;
 
         remainingTime = initialTime;
         remainingCountdownTime = initialCountdownTime;
@@ -80,13 +82,16 @@ public class GameManager : MonoBehaviour
         uiManager.DisplayCountdownTimer((int)remainingCountdownTime);
         audioManager.PlaySFX(audioManager.countdownEnd);
         uiManager.countdownTimerText.gameObject.SetActive(false);
+        inputManager.enabled = true;
         StartCoroutine(nameof(SetMatchTimer));
+
     }
     private void GameOver()
     {
         audioManager.PlaySFX(audioManager.gameOver);
         isGameOver = true;
         uiManager.gameOverUI.SetActive(true);
+        inputManager.enabled = false;
     }
 
     void PlayerVictory()
@@ -95,11 +100,13 @@ public class GameManager : MonoBehaviour
         {
             if (scoreManager.Player_1_Score > scoreManager.Player_2_Score)
             {
-                Debug.Log("Player 1 wins");
+                uiManager.winnerText.text = "Player 1";
+                uiManager.winnerText.color = new Color(0.8f, 0.13f, 0.13f, 1);
             }
             else
             {
-                Debug.Log("Player 2 wins");
+                uiManager.winnerText.text = "Player 2";
+                uiManager.winnerText.color = new Color(0, 0.75f, 1, 1);
             }
         }
     }
@@ -112,6 +119,7 @@ public class GameManager : MonoBehaviour
         uiManager.countdownTimerText.gameObject.SetActive(true);
         remainingCountdownTime = initialCountdownTime;
         StartCoroutine(nameof(SetCountDownTimer));
+        inputManager.enabled = false;
 
         //Timer
         isGameOver = false;

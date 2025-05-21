@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TMP_Text player1_Score_Text;
     [SerializeField] TMP_Text player2_Score_Text;
-    [SerializeField] TMP_Text timerText;
+    public TMP_Text winnerText;
+    public TMP_Text timerText;
     public TMP_Text countdownTimerText;
     public GameObject gameOverUI;
     public GameObject gamePauseUI;
@@ -70,6 +71,7 @@ public class UIManager : MonoBehaviour
     public void DisplayGameOverUI(bool setActive)
     {
         gameOverUI.SetActive(setActive);
+        
     }
 
     public void PauseGame()

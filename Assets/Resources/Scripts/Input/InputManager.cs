@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using Finger = UnityEngine.InputSystem.EnhancedTouch.Finger;
@@ -8,10 +9,11 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get; set; }
 
     private Camera cam;
-    private Transform selectedObject;
-    private TrailRenderer trail;
-    Rigidbody2D rb;
 
+
+    Dictionary<Finger, Transform> selectedObjects = new Dictionary<Finger, Transform>();
+    Dictionary<Finger, Rigidbody2D> rigidbodies = new Dictionary<Finger, Rigidbody2D>();
+    Dictionary<Finger, TrailRenderer> trails = new Dictionary<Finger, TrailRenderer>();
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -45,35 +47,52 @@ public class InputManager : MonoBehaviour
         Vector3 worldPos = ScreenToWorld(cam, finger.screenPosition);
         Collider2D hit = Physics2D.OverlapPoint(worldPos);
 
-        if (hit.CompareTag("Player"))
+        if (hit != null && hit.CompareTag("Player"))
         {
-            selectedObject = hit.transform;
-            trail = selectedObject.GetComponent<TrailRenderer>();
+            Transform selected = hit.transform;
+            selectedObjects[finger] = selected;
+
+            TrailRenderer trail = selected.GetComponent<TrailRenderer>();
             if (trail != null)
+            {
                 trail.enabled = true;
+                trails[finger] = trail;
+            }
+            
+            Rigidbody2D rb = selected.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rigidbodies[finger] = rb;
+            }
         }
-        else if (hit == null)
+        else
         {
-            return;
+            Debug.Log("Touch null");
         }
     }
 
     void OnFingerMove(Finger finger)
     {
-        if (selectedObject == null) return;
+        if (!selectedObjects.ContainsKey(finger)) return;
 
         Vector3 worldPos = ScreenToWorld(cam, finger.screenPosition);
-        rb = selectedObject.GetComponent<Rigidbody2D>();
-        rb.MovePosition(worldPos);
+        
+        if (rigidbodies.TryGetValue(finger, out Rigidbody2D rb))
+        {
+            rb.MovePosition(worldPos);
+        }
     }
 
     void OnFingerUp(Finger finger)
     {
-        if (selectedObject != null && trail != null)
+        if (trails.TryGetValue(finger, out TrailRenderer trail))
+        {
             trail.enabled = false;
+        }
 
-        selectedObject = null;
-        trail = null;
+        selectedObjects.Remove(finger);
+        trails.Remove(finger);
+        rigidbodies.Remove(finger);
     }
 
     Vector3 ScreenToWorld(Camera cam, Vector2 screenPos)
