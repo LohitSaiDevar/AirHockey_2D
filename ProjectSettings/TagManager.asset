@@ -54,8 +54,17 @@ TagManager:
   - name: Trail
     uniqueID: 1623027869
     locked: 0
+  - name: BG
+    uniqueID: 2039574587
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Hockey_Table_BG
+    uniqueID: 1809131989
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 392650701
     locked: 0
   m_RenderingLayers:
   - Default

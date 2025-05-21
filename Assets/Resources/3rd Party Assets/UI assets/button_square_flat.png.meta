@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 5c7405101f39bf648b8745a80ed01a1e
+guid: ffa2695e3efc7a946be6870e2acb7b0b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6617327198931238950
-    second: button_square_depth_gloss_0
+      213: 8645894043717093507
+    second: button_square_flat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 4, y: 6, z: 4, w: 3}
+  spriteBorder: {x: 5, y: 4, z: 5, w: 5}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -75,9 +75,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_square_depth_gloss_0
+      name: button_square_flat_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 620c3def60875db50800000000000000
-      internalID: 6617327198931238950
+      spriteID: 3884c6923d26cf770800000000000000
+      internalID: 8645894043717093507
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      button_square_depth_gloss_0: 6617327198931238950
+      button_square_flat_0: 8645894043717093507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

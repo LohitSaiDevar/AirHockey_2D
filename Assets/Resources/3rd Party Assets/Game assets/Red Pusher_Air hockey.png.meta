@@ -1,18 +1,15 @@
 fileFormatVersion: 2
-guid: 42febf4fa21facb4f9389d5d662c1aca
+guid: 997877e0d31d0614bae449b793fbcb51
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -633616630832405468
-    second: air_hockey_table_transparent_0
-  - first:
-      213: 5117711878005958732
-    second: air_hockey_table_transparent_1
+      213: -8619254081530754904
+    second: Red Pusher_Air hockey_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 832.5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,12 +72,12 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: air_hockey_table_transparent_0
+      name: Red Pusher_Air hockey_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 1502
-        height: 1024
+        x: 86
+        y: 88
+        width: 835
+        height: 843
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42464730801f437f0800000000000000
-      internalID: -633616630832405468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: air_hockey_table_transparent_1
-      rect:
-        serializedVersion: 2
-        x: 994
-        y: 986
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c48a75796d3c50740800000000000000
-      internalID: 5117711878005958732
+      spriteID: 8a806816412426880800000000000000
+      internalID: -8619254081530754904
       vertices: []
       indices: 
       edges: []
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      air_hockey_table_transparent_0: -633616630832405468
-      air_hockey_table_transparent_1: 5117711878005958732
+      Red Pusher_Air hockey_0: -8619254081530754904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

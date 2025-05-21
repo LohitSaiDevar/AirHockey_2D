@@ -19,7 +19,10 @@ public class Player : MonoBehaviour
     {
         
     }
-
+    private void Update()
+    {
+        PosBoundary();
+    }
     private void OnEnable()
     {
         GameManager.OnGameReset += ResetPosition;
@@ -31,5 +34,43 @@ public class Player : MonoBehaviour
     void ResetPosition()
     {
         transform.position = initialPos;
+    }
+
+    void PosBoundary()
+    {
+        if (transform.position.x > 2.3f)
+        {
+            transform.position = new Vector2(2.3f, transform.position.y);
+        }
+        else if (transform.position.x < -2.3f)
+        {
+            transform.position = new Vector2(-2.3f, transform.position.y);
+        }
+
+
+        switch (playerNumber)
+        {
+            case PlayerNumber.Player_1:
+                if (transform.position.y > -0.5f)
+                {
+                    transform.position = new Vector2(transform.position.x, -0.5f);
+                }
+                else if (transform.position.y < -4.3f)
+                {
+                    transform.position = new Vector2(transform.position.x, -4.3f);
+                }
+                break;
+
+            case PlayerNumber.Player_2:
+                if (transform.position.y < 0.5f)
+                {
+                    transform.position = new Vector2(transform.position.x, 0.5f);
+                }
+                else if (transform.position.y > 4.3f)
+                {
+                    transform.position = new Vector2(transform.position.x, 4.3f);
+                }
+                break;
+        }
     }
 }

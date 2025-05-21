@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
 
     UIManager uiManager;
     ScoreManager scoreManager;
+    AudioManager audioManager;
     bool isGameOver;
 
-    
-    
+
+    private const string MainMenu = "MainMenu";
     public static Action OnGameReset;
     private void Awake()
     {
@@ -31,23 +32,19 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-
-
-        uiManager = UIManager.Instance;
-        scoreManager = ScoreManager.Instance; 
+        Application.targetFrameRate = 75;
     }
 
     void Start()
     {
+        uiManager = UIManager.Instance;
+        scoreManager = ScoreManager.Instance;
+        audioManager = AudioManager.Instance;
+
         remainingTime = initialTime;
         remainingCountdownTime = initialCountdownTime;
         uiManager.gameOverUI.SetActive(false);
         StartCoroutine(nameof(SetCountDownTimer));
-    }
-
-    private void Update()
-    {
-        
     }
     private void OnEnable()
     {
@@ -75,17 +72,19 @@ public class GameManager : MonoBehaviour
     {
         while (remainingCountdownTime > 0f)
         {
-            remainingCountdownTime -= Time.deltaTime;
+            audioManager.PlaySFX(audioManager.countdownTimer);
             uiManager.DisplayCountdownTimer((int)remainingCountdownTime);
-            yield return null;
+            yield return new WaitForSeconds(1f);
+            remainingCountdownTime -= 1f;
         }
-
+        uiManager.DisplayCountdownTimer((int)remainingCountdownTime);
+        audioManager.PlaySFX(audioManager.countdownEnd);
         uiManager.countdownTimerText.gameObject.SetActive(false);
-        StopCoroutine(nameof(SetMatchTimer));
         StartCoroutine(nameof(SetMatchTimer));
     }
     private void GameOver()
     {
+        audioManager.PlaySFX(audioManager.gameOver);
         isGameOver = true;
         uiManager.gameOverUI.SetActive(true);
     }
@@ -121,7 +120,14 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
+        audioManager.PlaySFX(audioManager.uiButton);
         OnGameReset?.Invoke();
+    }
+
+    public void ReturnMainMenu()
+    {
+        audioManager.PlaySFX(audioManager.uiButton);
+        SceneManager.LoadScene(MainMenu);
     }
 }
 

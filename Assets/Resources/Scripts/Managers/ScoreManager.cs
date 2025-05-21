@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     public bool player1_turn;
 
     UIManager uiManager;
+    AudioManager audioManager;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,6 +31,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         uiManager = UIManager.Instance;
+        audioManager = AudioManager.Instance;
     }
 
     private void OnEnable()
@@ -50,6 +52,7 @@ public class ScoreManager : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent(out Player player))
         {
+            audioManager.PlaySFX(audioManager.playerHit);
             switch (player.PlayerNumber)
             {
                 case PlayerNumber.Player_1:
@@ -72,6 +75,7 @@ public class ScoreManager : MonoBehaviour
     void UpdateScore(Collision2D collision)
     {
         Barrier barrier = collision.gameObject.GetComponent<Barrier>();
+        audioManager.PlaySFX(audioManager.barrierHit);
         if (player1_turn && barrier.PlayerSide == PlayerBarrier.Player_2)
         {
             player_1_Score += barrier.YourScore;

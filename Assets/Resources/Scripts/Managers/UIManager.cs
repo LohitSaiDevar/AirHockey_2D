@@ -1,5 +1,9 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -12,8 +16,11 @@ public class UIManager : MonoBehaviour
     public TMP_Text countdownTimerText;
     public GameObject gameOverUI;
     public GameObject gamePauseUI;
+    [SerializeField] GameObject mainMenuUI;
+    [SerializeField] GameObject howToPlayMenu_Page_1;
+    [SerializeField] GameObject howToPlayMenu_Page_2;
     ScoreManager scoreManager;
-
+    AudioManager audioManager;
     public const string Level = "Level";
     private void Awake()
     {
@@ -30,6 +37,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         scoreManager = ScoreManager.Instance;
+        audioManager = AudioManager.Instance;
     }
     private void OnEnable()
     {
@@ -66,12 +74,14 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        audioManager.PlaySFX(audioManager.uiButton);
         Time.timeScale = 0;
         gamePauseUI.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        audioManager.PlaySFX(audioManager.uiButton);
         Time.timeScale = 1;
         gamePauseUI.SetActive(false);
     }
@@ -85,6 +95,28 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
+        audioManager.PlaySFX(audioManager.uiButton);
         SceneManager.LoadScene(Level);
+    }
+
+    public void HowToPlayMenu_Page1()
+    {
+        mainMenuUI.SetActive(false);
+        howToPlayMenu_Page_1.SetActive(true);
+    }
+    public void HowToPlayMenu_Page2()
+    {
+        howToPlayMenu_Page_1.SetActive(false);
+        howToPlayMenu_Page_2.SetActive(true);
+    }
+    public void ReturnToMainMenu()
+    {
+        howToPlayMenu_Page_2.SetActive(false);
+        mainMenuUI.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
