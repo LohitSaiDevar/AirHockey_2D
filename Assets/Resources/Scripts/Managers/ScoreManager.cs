@@ -81,14 +81,17 @@ public class ScoreManager : MonoBehaviour
             player_1_Score += barrier.YourScore;
             barrier.BarrierGlow();
             Debug.Log("Player 1 score: " + player_1_Score);
+            UIManager.Instance.DisplayPointIncrease(PlayerNumber.Player_1, barrier.YourScore);
         }
         else if(!player1_turn && barrier.PlayerSide == PlayerBarrier.Player_1)
         {
             player_2_Score += barrier.YourScore;
             barrier.BarrierGlow();
             Debug.Log("Player 2 score: " + player_2_Score);
+            UIManager.Instance.DisplayPointIncrease(PlayerNumber.Player_2, barrier.YourScore);
         }
         uiManager.DisplayScore();
+
     }
 
     void ResetScore()

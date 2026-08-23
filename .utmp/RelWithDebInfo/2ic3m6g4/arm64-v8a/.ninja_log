@@ -1,0 +1,12 @@
+# ninja log v5
+111	729	8092232628080221	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	fc6a70deefcc6b16
+731	926	8092232629994852	C:/Unity/Projects/AirHockey_2D/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2ic3m6g4/obj/arm64-v8a/libswappywrapper.so	967849d15655ee9c
+40	2179	8092232642518119	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	816b1b28eb4f096c
+53	2218	8092232642905539	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	81a4b8077b2bc726
+2	2236	8092232643095505	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	435f1128b71da186
+82	2259	8092232643302223	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	12a0b92364e020e7
+16	2313	8092232643845101	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f75721191711c5ac
+97	2557	8092232646291339	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a83012b7f9fb013e
+67	2595	8092232646720417	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	893b3f48bdbd9341
+28	2730	8092232647971178	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	f3c3cc206ad0980e
+2730	2887	8092232649667031	C:/Unity/Projects/AirHockey_2D/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2ic3m6g4/obj/arm64-v8a/libgame.so	a8cf3000c0a176c0
